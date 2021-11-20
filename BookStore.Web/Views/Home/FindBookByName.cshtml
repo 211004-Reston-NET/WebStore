@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BookStore.BL.DTO.BookDTO>
+
+<form asp-action="FindBookByName">
+    <div class="row">
+        <div class="col-md-6">
+            <input class="form-control" required name="name" type="text" />
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" type="submit">Find</button>
+        </div>
+
+    </div>
+</form>
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookAuthor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.ShopName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShopState)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var count = 0;}
+            @foreach (var item in Model)
+            {
+                count += 1;
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookAuthor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShopName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShopState)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

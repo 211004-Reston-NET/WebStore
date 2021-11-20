@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookStore.BL.DTO.ShopDTO>
+
+@{
+    ViewData["Title"] = "ShopList";
+}
+
+<h1>ShopList</h1>
+
+<p>
+    <a asp-action="AddShop">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopState)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopState)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

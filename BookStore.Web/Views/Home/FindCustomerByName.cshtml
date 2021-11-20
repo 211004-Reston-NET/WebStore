@@ -1,0 +1,45 @@
+﻿@model BookStore.BL.DTO.CustomerDTO
+
+<form asp-action="FindCustomerByName">
+    <div class="row">
+        <div class="col-md-6">
+            <input class="form-control" required name="name" type="text" />
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" type="submit">View</button>
+        </div>
+
+    </div>
+</form>
+
+    @if (Model!=null && Model.Id > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Name)
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No customer found</p>
+    }
+
+
+

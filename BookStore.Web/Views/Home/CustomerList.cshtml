@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BookStore.BL.DTO.CustomerDTO>
+
+@{
+    ViewData["Title"] = "CustomerList";
+}
+
+<h1>BookList</h1>
+
+<p>
+    <a asp-action="AddCustomer">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               SN
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{var count = 0;}
+        @foreach (var item in Model)
+        {
+            count += 1;
+        <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "EditCustomer", new { customerId = item.Id }) |
+                @Html.ActionLink("Place Order", "PlaceOrder", new { customerId = item.Id }) |
+                @Html.ActionLink("Order History", "CustomerOrderList", new { customerId = item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

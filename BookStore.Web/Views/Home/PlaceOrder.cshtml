@@ -1,0 +1,40 @@
+﻿@model BookStore.BL.DTO.PlaceOrderDTO
+
+<h4>PlaceOrderDTO</h4>
+<hr />
+<div><p style="color:red">@TempData["error"]</p></div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PlaceOrder">
+            @Html.HiddenFor(model => model.CustomerDTO.Id)
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerDTO.Name" class="control-label"></label>
+                <input asp-for="CustomerDTO.Name" class="form-control" readonly />
+                <span asp-validation-for="CustomerDTO.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select class="form-control selectpicker" asp-for="BookId" asp-items=@ViewBag.Books>
+                    <option value="" selected>Select Book</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Place Order" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="CustomerOrderList" asp-route-customerId=@Model.CustomerDTO.Id>Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

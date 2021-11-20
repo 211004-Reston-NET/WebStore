@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BookStore.BL.DTO.CustomerOrderDTO>
+
+<p>
+    <a asp-action="PlaceOrder" asp-route-customerId=@Model.FirstOrDefault().CustomerId> New Order</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookAuthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityOrdered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitCost)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityOrdered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitCost)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

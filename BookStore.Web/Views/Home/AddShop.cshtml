@@ -1,0 +1,36 @@
+﻿@model BookStore.BL.DTO.AddShopDTO
+
+@{
+    ViewData["Title"] = "AddShop";
+}
+
+<h1>AddShop</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddShop">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ShopName" class="control-label"></label>
+                <input asp-for="ShopName" class="form-control" />
+                <span asp-validation-for="ShopName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShopState" class="control-label"></label>
+                <input asp-for="ShopState" class="form-control" />
+                <span asp-validation-for="ShopState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShopList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
