@@ -20,5 +20,5 @@ To-do list:
 - Host it on a reliable platform
 ## Usage
 For now it is only on GitHub. I will have to get a permanent service on Azure to launch it again.
-##License
+## License
 There are no licenses involved.
